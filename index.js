@@ -21,7 +21,8 @@ const typeColours = {
     bug: "rgb(60, 255, 144)",
     ground: "brown",
     rock: "brown",
-    poison: "pink"
+    poison: "pink",
+    ghost: "white"
 };
 
 function cap(s1){
