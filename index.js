@@ -3,17 +3,25 @@ const submit = document.getElementById("submit");
 const stats = document.getElementById("stats");
 const test = document.getElementById("test");
 const typeColours = {
+    normal: "gray",
     fire: "red",
     water: "rgb(60, 125, 255)",
     grass: "green",
     electric: "yellow",
-    psychic: "purple",
     ice: "lightblue",
+    fighting: "rgb(150, 0, 0)",
+    poison: "pink",
+    ground: "brown",
+    flying: "rgb(150, 190, 255)",
+    psychic: "purple",
     dragon: "orange",
     dark: "black",
     fairy: "pink",
-    normal: "gray",
-    steel: "gray"
+    steel: "gray",
+    bug: "rgb(60, 255, 144)",
+    ground: "brown",
+    rock: "brown",
+    poison: "pink"
 };
 
 function cap(s1){
@@ -46,10 +54,16 @@ submit.onclick = async function getPokemon() {
             document.getElementById("types").style.color = type1Col;
         }
 
+        document.getElementById("types2").style.fontSize = "0px";
+        document.getElementById("emptySpace").style.fontSize = "0px"
+        document.getElementById("amtTypes").textContent = "Type:"
+
         if(pokemonInfo.types.length >= 2){
             document.getElementById("amtTypes").textContent = "Types:"
             document.getElementById("emptySpace").textContent = " and ";
             document.getElementById("types2").textContent = cap(pokemonInfo.types[1].type.name);
+            document.getElementById("types2").style.fontSize = "48px";
+            document.getElementById("emptySpace").style.fontSize = "48px"
 
             if(typeColours[pokemonInfo.types[1].type.name]){
                 const type2Col = typeColours[pokemonInfo.types[1].type.name];
