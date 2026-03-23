@@ -120,4 +120,4 @@ submit.onclick = async function getPokemon() {
             stats.textContent = "";
         }, 4000);
     }
-}
+} // plz work speed
