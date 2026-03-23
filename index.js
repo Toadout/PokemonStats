@@ -2,6 +2,19 @@ const pokemonInp = document.getElementById("pokemonInp");
 const submit = document.getElementById("submit");
 const stats = document.getElementById("stats");
 const test = document.getElementById("test");
+const typeColours = {
+    fire: "red",
+    water: "rgb(60, 125, 255)",
+    grass: "green",
+    electric: "yellow",
+    psychic: "purple",
+    ice: "lightblue",
+    dragon: "orange",
+    dark: "black",
+    fairy: "pink",
+    normal: "gray",
+    steel: "gray"
+};
 
 function cap(s1){
     return `${s1.charAt(0).toUpperCase()}${s1.slice(1)}`; // legit just searched ts up and made it a function :) https://www.geeksforgeeks.org/javascript/how-to-make-first-letter-of-a-string-uppercase-in-javascript/ 3rd approach
@@ -16,7 +29,7 @@ submit.onclick = async function getPokemon() {
         }
         const pokemonInfo = await pokemonRes.json();
 
-        // Sending the values to the screen
+        // sending the values to the screen
         document.getElementById("name").textContent = cap(pokemonInfo.name);
 
         document.getElementById("hp").textContent = pokemonInfo.stats[0].base_stat;
@@ -27,10 +40,21 @@ submit.onclick = async function getPokemon() {
         document.getElementById("speed").textContent = pokemonInfo.stats[5].base_stat;
 
         document.getElementById("types").textContent = cap(pokemonInfo.types[0].type.name);
+
+        if(typeColours[pokemonInfo.types[0].type.name]){ // goes into object lf element
+            const type1Col = typeColours[pokemonInfo.types[0].type.name];
+            document.getElementById("types").style.color = type1Col;
+        }
+
         if(pokemonInfo.types.length >= 2){
             document.getElementById("amtTypes").textContent = "Types:"
-            document.getElementById("types").textContent += " and ";
-            document.getElementById("types").textContent += cap(pokemonInfo.types[1].type.name);
+            document.getElementById("emptySpace").textContent = " and ";
+            document.getElementById("types2").textContent = cap(pokemonInfo.types[1].type.name);
+
+            if(typeColours[pokemonInfo.types[1].type.name]){
+                const type2Col = typeColours[pokemonInfo.types[1].type.name];
+                document.getElementById("types2").style.color = type2Col;
+            } 
         }
         document.getElementById("id").textContent = pokemonInfo.id;
         document.getElementById("weight").textContent = pokemonInfo.weight;
@@ -60,7 +84,7 @@ submit.onclick = async function getPokemon() {
         }
 
         document.getElementById("anchor").href = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-        document.getElementById("justPutPokemonHere").textContent = cap(pokemon);
+        document.getElementById("justPutPokemonHere").textContent = cap(pokemonInfo.name);
 
 
     }
