@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Stats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pokemon Stats</h1>
+    <input id="pokemonInp"> <br> <br>
+    <button id="submit">Submit</button>
+    <h3 id="title">Stats</h3>
+    <p id="stats"></p>
+    <h2 id="name"></h2>
 
+    <div class="listsContainer">
+        <div id="list">
+            <div>Hp: <span id="hp"></span></div>
+            <div>Attack: <span id="attack"></span></div>
+            <div>Defense: <span id="defense"></span></div>
+            <div>Sp. Atk: <span id="specialAttack"></span></div>
+            <div>Sp. Def: <span id="specialDefense"></span></div>
+            <div>Speed: <span id="speed"></span></div>
+        </div>
+
+        <div id="list2">
+            <div><span id="amtTypes">Type:</span> <span id="types"></span><span id="emptySpace"> </span><span id="types2"> </span></div>
+            <div>Id: <span id="id"></span></div>
+            <div>Weight: <span id="weight"></span></div>
+        </div>
+
+        <div> <!-- no id list cuz we're using the class to make the text visible 
+                and not every pokemon have 4 abilities (none at all actually)-->
+            <div id="abilityTxt1">Ability 1: <span id="ability1"></span></div>
+            <div id="abilityTxt2">Ability 2: <span id="ability2"></span></div>
+            <div id="abilityTxt3">Ability 3: <span id="ability3"></span></div>
+            <div id="abilityTxt4">Ability 4: <span id="ability4"></span></div>
+        </div>
+    </div>
+<br>
+    <a id="anchor"href="" target="_blank">
+    <span id="justPutPokemonHere"></span> API used :)
+    </a>
+
+    <script src="index.js"></script>
+</body>
+</html>
