@@ -119,6 +119,7 @@ submit.onclick = async function getPokemon() {
         document.getElementById("ability2").style.fontSize = "0px"; 
         document.getElementById("ability3").style.fontSize = "0px"; 
         document.getElementById("ability4").style.fontSize = "0px"; // For some reason it didnt work if i changed the id of their div so ig the long way works
+        console.log('error done');
         setTimeout(function() {
             stats.textContent = "";
         }, 4000);
